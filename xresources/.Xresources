@@ -1,0 +1,67 @@
+!! Colorscheme
+
+URxvt*background: #fff5f3
+URxvt*foreground: #4d595f
+URxvt*cursorColor: #4d595f
+URxvt*cursorColor2: #fff5f3
+URxvt*color0: #4d595f
+URxvt*color1: #c61a14
+URxvt*color2: #357200
+URxvt*color3: #825e00
+URxvt*color4: #1666b0
+URxvt*color5: #a83884
+URxvt*color6: #007072
+URxvt*color7: #f2ebe9
+URxvt*color8: #7b6471
+URxvt*color9: #bd401a
+URxvt*color10: #447720
+URxvt*color11: #985d00
+URxvt*color12: #485ddf
+URxvt*color13: #a438c0
+URxvt*color14: #00786a
+URxvt*color15: #fff5f3
+
+
+
+URxvt.scrollBar: false
+URxvt.iso14755: false
+URxvt.internalBorder: 0
+
+!! URxvt Appearance
+URxvt.font: xft:Hack:style=Regular:size=11
+URxvt.boldFont: xft:Hack:style=Bold:size=11
+URxvt.italicFont: xft:Hack:style=Italic:size=11
+URxvt.boldItalicFont: xft:Hack:style=Bold Italic:size=11
+URxvt.saveline: 2048
+
+URxvt.cursorBlink: 1
+URxvt.cursorUnderline: false
+
+rofi.modi:                 run,window,ssh
+rofi.terminal:             i3-sensible-terminal
+rofi.ssh-client:           ssh
+rofi.ssh-command:          {terminal} -e {ssh-client} {host}
+rofi.run-command:          {cmd}
+rofi.run-shell-command:    {terminal} -e {cmd}
+rofi.parse-known-hosts:              true
+
+! State:           'bg',     'fg',     'bgalt',  'hlbg',   'hlfg'
+rofi.color-normal: #eff0f2,  #4a4b4e,  #eff0f2,  #ae4e2a,  #FFFFFF
+rofi.color-window: #eff0f2,  #4a4b4e,  #eff0f2,  #ae4e2a,  #FFFFFF
+rofi.color-urgent: #eff0f2,  #4a4b4e,  #eff0f2,  #ae4e2a,  #FFFFFF
+rofi.color-active: #eff0f2,  #4a4b4e,  #eff0f2,  #ae4e2a,  #FFFFFF
+
+rofi.bw:                             10
+! rofi.location:                       0
+! rofi.padding:                        20
+! rofi.levenshtein-sort:               true
+! rofi.case-sensitive:                 false
+! rofi.fuzzy:                          false
+! rofi.line-margin:                    2
+rofi.separator-style:                solid
+! rofi.hide-scrollbar:                 true
+! rofi.markup-rows:                    false
+rofi.width: 30
+rofi.lines: 5
+rofi.font: Iosevka 14
+rofi.hide-scrollbar: true
