@@ -18,17 +18,15 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "Hack" :size 12)
+(setq doom-font (font-spec :family "Hack" :size 14)
       ;;doom-variable-pitch-font (font-spec :family "sans" :size 13)
       )
 ;;
-;; (when window-system
-;;   (if (> (x-display-pixel-width) 1700)
-;;       (setq doom-font (font-spec :family "monospace" :size 18))
-;;     (setq doom-font (font-spec :family "monospace" :size 12))))
+;; (if (> (x-display-pixel-width) 1700)
+;;    (setq doom-font (font-spec :family "Hack" :size 18))
+;;   (setq doom-font (font-spec :family "Hack" :size 14)))
 
 (setq exec-path (cons "usr/local/bin" exec-path))
-(setq inhibit-splash-screen t)
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function.
@@ -65,8 +63,6 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
 
-;; (use-package! org)
-;; (add-hook 'focus-in-hook 'org-agenda-list)
 
 ;; active Org-babel languages
 (org-babel-do-load-languages
@@ -114,8 +110,8 @@
   ;;(setq lsp-log-io t)
   )
 
-(setq smtpmail-default-smtp-server
-      "smtp.mailbox.org")
+(setq smtpmail-default-smtp-server "smtp.mailbox.org")
+
 (require 'smtpmail)
 (setq message-send-mail-function 'smtpmail-send-it
       smtpmail-smtp-server "smtp.mailbox.org"
@@ -124,11 +120,17 @@
       smtpmail-smtp-service 465)
 
 (require 'mu4e)
-(setq mu4e-maildir "~/Mail")
+(setq mu4e-maildir "~/.mail"
+      mu4e-attachment-dir "~/Downloads"
+      mu4e-sent-folder "/Sent"
+      mu4e-drafts-folder "/Drafts"
+      mu4e-trash-folder "/Trash")
+
 (setq mail-user-agent 'mu4e-user-agent)
 (setq user-mail-address "zcampbell@mailbox.org")
 (setq mu4e-get-mail-command "mbsync mailbox"
-      mu4e-change-filenames-when-moving t)
+      mu4e-change-filenames-when-moving t
+      mu4e-update-interval 120)
 
 ;; Clojure mode hooks.............................................
 (add-hook 'clojure-mode-hook
@@ -355,12 +357,15 @@
 (global-set-key (kbd "C-c C-<left>") 'win-resize-enlarge-vert)
 (global-set-key (kbd "C-c C-<right>") 'win-resize-minimize-vert)
 
+(global-set-key (kbd "C-c m m") 'mu4e)
+(global-set-key (kbd "C-n") 'forward-word)
+(global-set-key (kbd "C-p") 'delete-indentation)
 
 ;; Emacs lisp
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
             (paredit-mode 1)
-	          (aggressive-indent-mode 1)))
+	    (aggressive-indent-mode 1)))
 
 ;; Projectile
 ;;
@@ -368,7 +373,7 @@
 (setq projectile-completion-system 'ivy)
 
 ;; Default directory
-(setq default-directory "~/dev/")
+;;(setq default-directory "~/dev/")
 
 ;; Don't lint my emacs config
 (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
